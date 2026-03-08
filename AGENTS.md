@@ -85,3 +85,18 @@ Use `bd` for tracking search tasks and investigations.
 - `feature` - New search patterns to develop
 - `bug` - Failed searches to debug
 <!-- END BEADS INTEGRATION -->
+
+## Git Commit Standard
+
+All commits MUST follow the KVC commit standard defined in `docs/COMMITS.md`.
+A `.gitmessage` template is configured for interactive use.
+
+### Co-authorship
+
+All commits MUST include the following footer:
+
+```
+Co-authored-by: htayj <htayj@users.noreply.github.com>
+```
+
+This applies to every commit you make, in every repo.
