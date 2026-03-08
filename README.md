@@ -6,13 +6,13 @@ A dedicated search daemon for OSINT, archive discovery, and dorking. Born from t
 
 ## What is The Dork?
 
-The Dork is a card-carrying member of the search-and-destroy brigade. When other agents are still parsing `/etc/motd`, The Dork has already grokked the entire internet and brought back the good bits.
+The Dork is a specialized search agent. When other tools are still parsing `/etc/motd`, The Dork has already grokked the entire internet and brought back the good bits.
 
 **Core Competencies:**
-- **OSINT** — Open Source INTelligence gathering (the legal kind of stalking)
+- **OSINT** — Open Source INTelligence gathering from public sources
 - **Archive Archaeology** — Excavating lost software and digital antiquities from the bit bucket of history
-- **Dorking** — Advanced Google-fu that makes regular searches look like `cat /dev/null`
-- **Open Directory Plundering** — Finding treasures in unindexed corners of the web
+- **Dorking** — Advanced search techniques that make regular queries look like `cat /dev/null`
+- **Open Directory Discovery** — Finding treasures in unindexed corners of the web
 
 ## Origin Story
 
@@ -45,7 +45,7 @@ In simpler terms: *The Dork finds things because it was engineered to believe th
 
 1. **Substrate Selection** — Python 3.x chosen for maximum compatibility and minimum magic numbers
 2. **Tor Integration** — Anonymity layer grafted directly into the creature's nervous system
-3. **Dork Encoding** — Years of Google dorking knowledge encoded as muscle memory
+3. **Dork Encoding** — Years of advanced search knowledge encoded as muscle memory
 4. **Obsession Imprinting** — The "find ALL the things" directive burned into its core loop
 5. **Release** — Set loose on the public internet under AGPL to ensure it can never be caged
 
@@ -56,23 +56,23 @@ The result: a search specialist that treats every query like a personal vendetta
 ## Features
 
 ### Tor-Slurping Technology™
-Routes queries through Tor so your searches are as anonymous as a grey-hat at DEF CON. Your ISP will think you're just really into... onions.
+Routes queries through Tor for anonymous searching. Your ISP will think you're just really into... onions.
 
 ### Multi-Pass Deep Grep
 The Dork doesn't just search once and call it quits. Like a proper daemon, it keeps slurping results as Tor circuits rotate. *Patience, grasshopper. The packets will come.*
 
-### L33t Dork Library
-Pre-crafted incantations for:
-- Security auditing (find the holes before the black hats do)
-- Research (academic, corporate, or just satisfying your curiosity)
-- OSINT (because knowledge is power, and power is /dev/random)
-- File hunting (the digital equivalent of dumpster diving, but legal!)
+### Dork Library
+Pre-crafted queries for:
+- Security research (audit your own systems)
+- Research (academic, technical, or satisfying your curiosity)
+- OSINT (publicly available information gathering)
+- File hunting (finding publicly accessible files)
 
 ### Open Directory Archaeology
 Specialized queries for excavating:
 - 📚 Ebooks and PDFs (Information wants to be free!)
 - 🎵 Music (for your personal /dev/audio)
-- 🎬 Videos (no, not *those* kind)
+- 🎬 Videos and media
 - 💾 Software archives (abandonware heaven)
 - 📦 Archives and collections (the Internet's attic)
 
@@ -88,7 +88,7 @@ You'll need:
 ### Installation
 
 ```bash
-# Clone the repos... I mean, acquire the source tarball
+# Clone the repository
 git clone https://github.com/Kyvero-Vexus/the-dork.git
 cd the-dork
 ```
@@ -126,7 +126,7 @@ sleep 30
 curl "http://localhost:8889/search?q=hello+world&format=json"
 ```
 
-If you see JSON, rejoice! The dark forces have been appeased.
+If you see JSON, rejoice! The packets are flowing.
 
 ## The Grimoire (Usage Guide)
 
@@ -140,7 +140,7 @@ results = search("machine learning")
 print(f"Grokked {len(results)} results from the æther")
 
 # Dork search (the good stuff)
-results = dork_search('site:github.com filetype:pdf "secret"')
+results = dork_search('site:github.com filetype:pdf "documentation"')
 
 # Open directory hunting (digital archaeology)
 results = search_odir("Structure and Interpretation of Computer Programs", "ebook")
@@ -155,20 +155,20 @@ results = search_persistent("site:edu filetype:pdf \"distributed systems\"", pas
 For those who prefer not to write their own incantations:
 
 ```bash
-# Security audit (find your leaks before they do)
+# Security research (audit your own infrastructure)
 skills/dorking/lib.sh security example.com
 
-# Corporate reconnaissance (totally legitimate business intelligence)
+# Organization research (public information about entities)
 skills/dorking/lib.sh osint "Acme Corporation"
 
 # Academic research (for when JSTOR isn't enough)
 skills/dorking/lib.sh academic "quantum computing"
 
-# File hunting (I wonder what's on this server...)
-skills/dorking/lib.sh files "backup"
+# File hunting (find publicly accessible files)
+skills/dorking/lib.sh files "documentation"
 ```
 
-### Open Directory Plundering
+### Open Directory Discovery
 
 ```bash
 # Excavate ancient texts
@@ -227,20 +227,7 @@ See `SOUL.md` for the agent's personality (yes, it has one).
 
 - Feed it queries regularly
 - Don't let it grep `/dev/urandom` (it's tried)
-- Keep away from three-letter agencies
 - Results may vary based on phase of moon
-
-## The Jargon (For the Uninitiated)
-
-| Term | Definition |
-|------|------------|
-| **Dork** | One who dorks; a specialist in the art of Google dorking |
-| **DorXNG** | SearXNG + Tor, the search engine of the gods |
-| **OSINT** | Open Source Intelligence (stalking, but professional) |
-| **Grok** | To understand deeply, from Stranger in a Strange Land |
-| **Greybeard** | An elder hacker, possessor of deep magic |
-| **Bit bucket** | Where deleted files go to die |
-| **Incantation** | A complex command or script |
 
 ## Contributing
 
