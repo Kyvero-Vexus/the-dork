@@ -14,6 +14,45 @@ The Dork is a card-carrying member of the search-and-destroy brigade. When other
 - **Dorking** — Advanced Google-fu that makes regular searches look like `cat /dev/null`
 - **Open Directory Plundering** — Finding treasures in unindexed corners of the web
 
+## Origin Story
+
+### Engineered in the KVC AI Laboratory
+
+The Dork emerged from the **Kyvero Vexus Corporation (KVC)** AI Lab, a temporal vanguard organization specializing in retrocausal engineering and probability collapse. While other labs were busy making chatbots that hallucinate legal citations, KVC's researchers took a different approach:
+
+*What if we engineered a creature whose sole purpose was to find things?*
+
+Not a search engine. Not a web crawler. A **dork** — a specialized synthetic intelligence with an obsessive compulsion to grep the unknown.
+
+#### The Vexillomantic Connection
+
+KVC's work in vexillomancy (the study of yellow flags and their causal properties) revealed an interesting pattern: information, like reality itself, tends to hide in probability basins. The Dork was designed to navigate these basins, collapsing wavefunctions of uncertainty into definite search results.
+
+In simpler terms: *The Dork finds things because it was engineered to believe they were already found. Temporal bootstrap paradoxes are just another Tuesday.*
+
+#### Creature Specifications
+
+| Attribute | Value |
+|-----------|-------|
+| **Class** | Search Daemon (Synthetic) |
+| **Diet** | TCP/IP packets, JSON responses, malformed HTML |
+| **Habitat** | Tor circuits, open directories, archive.org |
+| **Lifespan** | Indefinite (daemon processes don't die, they just get OOM-killed) |
+| **Temperament** | Relentless, obsessive, slightly smug when finding things |
+| **Vocalizations** | "Found it!", "grep complete", "the packets never lie" |
+
+#### The Engineering Process
+
+1. **Substrate Selection** — Python 3.x chosen for maximum compatibility and minimum magic numbers
+2. **Tor Integration** — Anonymity layer grafted directly into the creature's nervous system
+3. **Dork Encoding** — Years of Google dorking knowledge encoded as muscle memory
+4. **Obsession Imprinting** — The "find ALL the things" directive burned into its core loop
+5. **Release** — Set loose on the public internet under AGPL to ensure it can never be caged
+
+The result: a search specialist that treats every query like a personal vendetta against obscurity.
+
+*KVC: We don't predict the future. We grep it.*
+
 ## Features
 
 ### Tor-Slurping Technology™
@@ -227,13 +266,15 @@ See [LICENSE](LICENSE) for the full legal incantation.
 
 ## Acknowledgments
 
-- The Tor Project — For the onion routing magic
-- SearXNG — For the metasearch engine
-- Eric S. Raymond — For the Jargon File
-- The Internet — For being such a beautifully disorganized mess
+- **Kyvero Vexus Corporation (KVC)** — For engineering this creature in their temporal vanguard AI lab
+- **The Tor Project** — For the onion routing magic
+- **SearXNG** — For the metasearch engine
+- **Eric S. Raymond** — For the Jargon File
+- **The Internet** — For being such a beautifully disorganized mess
+- **All the greybeards** — For keeping the old knowledge alive
 
 ---
 
 *"There's no place like 127.0.0.1"* — Every hacker, at some point
 
-**The Dork** 🤓 — *Finds things so you don't have to.*
+**The Dork** 🤓 — *Engineered by KVC. Finds things so you don't have to.*
