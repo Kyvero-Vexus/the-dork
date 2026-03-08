@@ -50,8 +50,8 @@ See `skills/dorxng/SKILL.md` for full setup guide.
 If you don't need anonymity, use public SearX instances:
 
 ```python
-from skills.searx.skill import search_searx
-results = search_searx("query", instance="https://search.bus-hit.me")
+from skills.searx.search import search_searx
+results = search_searx("query", instance="https://searx.tiekoetter.com")
 ```
 
 Find instances at: https://searx.space/
@@ -80,7 +80,7 @@ results = search("hello world")
 print(f"DorXNG: Found {len(results)} results")
 
 # Or test SearX
-from skills.searx.skill import search_searx
+from skills.searx.search import search_searx
 results = search_searx("hello world")
 print(f"SearX: Found {len(results)} results")
 ```
@@ -101,7 +101,7 @@ Your local instance can delete it after setup, but the repo should keep it.
 | Is DorXNG running? | `docker ps \| grep dorxng` |
 | DorXNG logs | `docker logs dorxng` |
 | Test DorXNG | `curl "http://localhost:8889/search?q=test&format=json"` |
-| Test SearX | `curl "https://search.bus-hit.me/search?q=test&format=json"` |
+| Test SearX | `curl "https://searx.tiekoetter.com/search?q=test&format=json"` |
 
 ## Priority Order
 

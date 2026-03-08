@@ -1,35 +1,37 @@
 #!/bin/bash
 #
-# SearX Search - Search via public SearX instances
+# SearX Search - public SearXNG clearnet fallback
 #
-# Usage: search.sh "<query>" [instance_url]
+# Usage:
+#   search.sh "<query>"                  # auto-select + rotate
+#   search.sh "<query>" <instance_url>   # fixed instance
 #
 # WARNING: SearX is NOT anonymous. Queries go over clearnet.
-# For anonymous search, use DorXNG instead.
+# Use DorXNG for anonymous search.
 #
 
 set -e
 
 QUERY="$1"
-INSTANCE="${2:-https://search.bus-hit.me}"
+INSTANCE="$2"
 
 if [ -z "$QUERY" ]; then
     echo "Usage: search.sh \"<query>\" [instance_url]"
     echo ""
-    echo "Instances (see searx.space for full list):"
-    echo "  https://search.bus-hit.me"
-    echo "  https://searx.be"
-    echo "  https://search.sapti.me"
+    echo "Examples:"
+    echo "  search.sh \"SearXNG docs\""
+    echo "  search.sh \"query\" https://searx.tiekoetter.com"
+    echo ""
+    echo "Find current instances at: https://searx.space/"
     echo ""
     echo "WARNING: SearX is NOT anonymous. Use DorXNG for anonymous search."
     exit 1
 fi
 
-# URL encode the query
-ENCODED=$(python3 -c "import urllib.parse; print(urllib.parse.quote('''$QUERY''', safe=''))")
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-# Execute search (respect rate limits - add delay)
-echo "Searching via $INSTANCE..."
-sleep 1
-
-curl -s --max-time 30 "${INSTANCE}/search?q=${ENCODED}&format=json"
+if [ -n "$INSTANCE" ]; then
+    python3 "$SCRIPT_DIR/search.py" "$QUERY" --instance "$INSTANCE" --no-rotate
+else
+    python3 "$SCRIPT_DIR/search.py" "$QUERY"
+fi

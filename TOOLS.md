@@ -58,10 +58,10 @@ https://searx.space/ - Lists all public instances with reliability ratings
 ### Usage
 
 ```python
-from skills.searx.skill import search_searx
+from skills.searx.search import search_searx
 
 # Basic search via public SearX
-results = search_searx("query", instance="https://search.bus-hit.me")
+results = search_searx("query", instance="https://searx.tiekoetter.com")
 ```
 
 ### SearX Boundaries

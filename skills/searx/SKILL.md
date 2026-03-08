@@ -58,14 +58,19 @@ This site lists all known public instances with:
 - Have strict rate limits (queries per minute)
 - Are frequently down
 
-### Recommended Instances
+### Recommended Instance Strategy
 
-Check searx.space for current reliable instances. As of 2026, some stable options include:
-- `https://search.bus-hit.me/`
-- `https://searx.be/`
-- `https://search.sapti.me/`
+Do **not** hardcode a single instance.
 
-**Always verify current status at searx.space before using.**
+Use `https://searx.space/data/instances.json` to discover candidates, then health-check them before search.
+
+The `skills/searx/search.py` module now does this automatically:
+- fetches live candidates from searx.space
+- filters by status/health signals
+- rotates across instances on failure
+- falls back to a small static list only if searx.space is unavailable
+
+**Always verify current status at searx.space before relying on any specific instance.**
 
 ## Usage
 
@@ -76,7 +81,7 @@ import urllib.request
 import urllib.parse
 import json
 
-def search_searx(query: str, instance: str = "https://search.bus-hit.me", timeout: int = 30):
+def search_searx(query: str, instance: str = "https://searx.tiekoetter.com", timeout: int = 30):
     """
     Search via public SearX instance.
     
@@ -107,10 +112,20 @@ def search_searx(query: str, instance: str = "https://search.bus-hit.me", timeou
 ### Dork Search via SearX
 
 ```python
-results = search_searx('site:github.com filetype:pdf "documentation"')
+results = search_searx('site:github.com filetype:pdf "documentation"', rotate=True)
 for r in results[:10]:
     print(f"{r.get('title')}: {r.get('url')}")
 ```
+
+### Built-in Reliability Features
+
+`skills/searx/search.py` includes:
+- automatic instance discovery from `searx.space/data/instances.json`
+- per-instance pacing (`>=3s`) to avoid hammering
+- exponential backoff on HTTP 429
+- gzip response decoding
+- JSON-first parsing with HTML fallback extraction
+- error classification (rate_limit, dns, forbidden, timeout, etc.)
 
 ### Checking Instance Availability
 
@@ -128,8 +143,8 @@ def check_instance(instance_url: str) -> bool:
         return False
 
 # Check before using
-if check_instance("https://search.bus-hit.me"):
-    results = search_searx("query", "https://search.bus-hit.me")
+if check_instance("https://searx.tiekoetter.com"):
+    results = search_searx("query", "https://searx.tiekoetter.com")
 ```
 
 ## Boundaries
