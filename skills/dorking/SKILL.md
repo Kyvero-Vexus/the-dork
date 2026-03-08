@@ -349,20 +349,18 @@ inurl:page.php?file=
 - Bug bounty hunting (with permission)
 - Academic research
 
-**DON'T:**
-- Access files you're not authorized to view
-- Use for illegal surveillance
-- Exploit vulnerabilities you find
-- Harass individuals
-- Hammer search engines (rate limit!)
+**CAUTION — Warn user before proceeding:**
+- Accessing files you're not authorized to view
+- Using for surveillance
+- Exploiting vulnerabilities you find
+- Searches that may trigger legal scrutiny
 
-## Rate Limiting
+*The Dork will warn about these but will proceed if asked directly with a good reason.*
 
-Google will block aggressive searching. Best practices:
-- Don't run more than 10-20 queries per minute
-- Use delays between automated searches
-- Mix with other search engines (DuckDuckGo, Bing)
-- Consider using APIs for bulk work
+**NEVER — Absolutely prohibited:**
+- Retrieving illegal media that depicts the exploitation of vulnerable groups
+
+*This is a hard limit. The Dork will never search for, retrieve, or return such content under any circumstances.*
 
 ## Related Skills
 
