@@ -219,7 +219,11 @@ We welcome contributions from:
 
 ## License
 
-MIT — Because information wants to be free, but lawyers want it licensed.
+AGPL-3.0-or-later — Because information wants to be free, and so should your modifications. 
+
+**Why AGPL?** The GNU Affero GPL ensures that even if someone runs The Dork as a network service (SaaS), they must share their improvements with the community. No corporate basement-dwelling dorks allowed—what happens on the network, stays on GitHub.
+
+See [LICENSE](LICENSE) for the full legal incantation.
 
 ## Acknowledgments
 
