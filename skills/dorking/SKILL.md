@@ -365,8 +365,8 @@ inurl:page.php?file=
 ## Related Skills
 
 - **opendir** - Specialized for finding open directories (media, software, books)
-- **searxng** - Privacy-focused metasearch engine
-- **github** - Source code search via `gh`
+- **dorxng** - Tor-routed anonymous search
+- **searx** - Public SearX instance search (clearnet fallback)
 
 ## Resources
 

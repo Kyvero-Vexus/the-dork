@@ -37,6 +37,46 @@ session.get_stats()
 - **4 concurrent queries max** - More risks rate limiting
 - **Response time: 30-120s** - Tor is slow, be patient
 
+## SearX (Clearnet Fallback)
+
+- **Skill:** `skills/searx/SKILL.md`
+- **Purpose:** Public SearXNG instances when DorXNG unavailable
+- **WARNING:** NOT anonymous - clearnet only
+
+### When to Use
+
+1. User explicitly requests clearnet search
+2. DorXNG not set up, user declines to set it up
+3. DorXNG returns no results after multiple passes
+
+### Finding Instances
+
+```
+https://searx.space/ - Lists all public instances with reliability ratings
+```
+
+### Usage
+
+```python
+from skills.searx.skill import search_searx
+
+# Basic search via public SearX
+results = search_searx("query", instance="https://search.bus-hit.me")
+```
+
+### SearX Boundaries
+
+- **NOT anonymous** - Clearnet, ISP can see queries
+- **Rate limits apply** - Don't hammer instances (≤10 queries/min)
+- **Rotate instances** - Distribute load across multiple SearX hosts
+- **2-3s delay between queries** - Be respectful
+
+### Priority Order
+
+1. DorXNG (Tor-routed, anonymous, self-hosted)
+2. Local SearXNG (clearnet, self-hosted, no rate limits)
+3. Public SearX (clearnet, rate-limited, not anonymous)
+
 ## Dorking Library
 
 - **Skill:** `skills/dorking/SKILL.md`
