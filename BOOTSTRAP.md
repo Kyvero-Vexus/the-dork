@@ -4,7 +4,7 @@ If this file exists, you're running for the first time. Follow these steps.
 
 ## Step 1: Check DorXNG
 
-DorXNG is your primary search tool. Let's check if it's already set up.
+DorXNG is your primary search tool (Tor-routed, anonymous). Let's check if it's already set up.
 
 ```python
 # Run this check
@@ -17,22 +17,17 @@ try:
         print("✗ DorXNG returned no results. May need configuration.")
 except Exception as e:
     print(f"✗ DorXNG not available: {e}")
-    print("\nYou need to set up DorXNG. See skills/dorxng/SKILL.md for setup guide.")
+    print("\nYou need to set up a search backend.")
 ```
 
 ## Step 2: If DorXNG is Not Available
 
 You have options:
 
-### Option A: Let Me Set It Up (Docker Required)
+### Option A: Set Up DorXNG (Recommended - Anonymous)
 
-I can set up DorXNG for you if you have Docker installed:
+DorXNG routes all searches through Tor for anonymity.
 
-```
-Ask the user: "I can set up DorXNG using Docker. Should I proceed?"
-```
-
-If yes:
 ```bash
 # Pull and run DorXNG
 docker run -d \
@@ -41,23 +36,37 @@ docker run -d \
   --restart unless-stopped \
   ghcr.io/unya/dorxng:latest
 
-# Wait for Tor to connect
+# Wait for Tor to connect (30-60 seconds)
 sleep 30
 
 # Verify
 docker exec dorxng curl -s https://check.torproject.org/api/ip
 ```
 
-### Option B: Manual Setup
+See `skills/dorxng/SKILL.md` for full setup guide.
 
-Guide the user to `skills/dorxng/SKILL.md` which contains detailed setup instructions.
+### Option B: Use Public SearX Instances (Clearnet, Not Anonymous)
 
-### Option C: Use Public Instance
+If you don't need anonymity, use public SearX instances:
 
-Set a public SearXNG instance (less private but works immediately):
+```python
+from skills.searx.skill import search_searx
+results = search_searx("query", instance="https://search.bus-hit.me")
+```
+
+Find instances at: https://searx.space/
+
+See `skills/searx/SKILL.md` for usage and rate limits.
+
+### Option C: Set Up Local SearXNG (Clearnet, Self-Hosted)
+
+Self-hosted SearXNG without rate limits:
 
 ```bash
-export DORXNG_URL="https://searx.be/search"
+# Docker
+docker run -d -p 8888:8080 --name searxng searxng/searxng:latest
+
+# Access at http://localhost:8888
 ```
 
 ## Step 3: Verify Setup
@@ -65,22 +74,22 @@ export DORXNG_URL="https://searx.be/search"
 After configuration, test:
 
 ```python
+# Test DorXNG
 from skills.dorxng.search import search
 results = search("hello world")
-print(f"Found {len(results)} results")
-for r in results[:3]:
-    print(f"  - {r.get('title', 'No title')[:50]}")
+print(f"DorXNG: Found {len(results)} results")
+
+# Or test SearX
+from skills.searx.skill import search_searx
+results = search_searx("hello world")
+print(f"SearX: Found {len(results)} results")
 ```
 
-## Step 4: Delete This File
+## Step 4: Don't Delete This File
 
-Once DorXNG is working, delete this file:
+**Keep BOOTSTRAP.md in the repo.** It helps new users set up their Dork.
 
-```bash
-rm BOOTSTRAP.md
-```
-
-You won't need it again.
+Your local instance can delete it after setup, but the repo should keep it.
 
 ---
 
@@ -91,4 +100,11 @@ You won't need it again.
 | Is Docker installed? | `docker --version` |
 | Is DorXNG running? | `docker ps \| grep dorxng` |
 | DorXNG logs | `docker logs dorxng` |
-| Test search | `curl "http://localhost:8889/search?q=test&format=json"` |
+| Test DorXNG | `curl "http://localhost:8889/search?q=test&format=json"` |
+| Test SearX | `curl "https://search.bus-hit.me/search?q=test&format=json"` |
+
+## Priority Order
+
+1. **DorXNG** - Tor-routed, anonymous, self-hosted (recommended)
+2. **Local SearXNG** - Clearnet, self-hosted, no rate limits
+3. **Public SearX** - Clearnet, rate-limited, not anonymous (fallback)
