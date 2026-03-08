@@ -86,6 +86,19 @@ Use `bd` for tracking search tasks and investigations.
 - `bug` - Failed searches to debug
 <!-- END BEADS INTEGRATION -->
 
+## Public Git Projects
+
+All public git repositories live in `~/projects/`. This is the single
+canonical location. When working on or looking for a public project,
+check `~/projects/` FIRST.
+
+**Rules:**
+- NEVER clone or create a public project inside an agent workspace
+- If you need workspace access to a project, symlink it:
+  `ln -sfn ~/projects/<name> /path/to/workspace/<name>`
+- New public repos MUST be created in `~/projects/`
+- Third-party source code goes in `~/external_src/`, not `~/projects/`
+
 ## Git Commit Standard
 
 All commits MUST follow the KVC commit standard defined in `docs/COMMITS.md`.
