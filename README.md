@@ -1,7 +1,5 @@
 # The Dork 🤓
 
-> ⚠️ **Alpha stage.** Currently returns good results but eats tokens. Expect high token usage per search session.
-
 > *"When in doubt, grep it out."* — Ancient Hacker Proverb
 
 A dedicated search daemon for OSINT, archive discovery, and dorking. Born from the deep magic of Tor routing and fed a steady diet of TCP/IP packets.
