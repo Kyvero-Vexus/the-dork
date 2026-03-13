@@ -204,6 +204,15 @@ The Dork was forged in the fires of OpenClaw. To use it as an agent:
 2. Add the agent config to `openclaw.json`
 3. Summon with "the dork" or "find X"
 
+#### IMPORTANT: Run mode when invoked by another agent
+
+When one agent delegates work to The Dork, run The Dork as either:
+
+- an **independent agent session**, or
+- a **sub-agent**
+
+Do **not** run it inline in a way that blocks the delegator's input loop. DorXNG research can take several minutes (Tor latency + multi-pass queries), so isolation prevents the caller from becoming unresponsive while The Dork is still searching.
+
 See `SOUL.md` for the agent's personality (yes, it has one).
 
 ## Pro Tips from the Greybeards
